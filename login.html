@@ -1,0 +1,62 @@
+
+<html lang="en">
+  <head>
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <meta name="google-signin-client_id" content="348200332968-94ong4m49gftcur1v76qgkk5ut4a86uh.apps.googleusercontent.com">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="test.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <style>
+      .g-signin2{
+        width: 100%;
+      }
+
+      .g-signin2 > div{
+        margin: 0 auto;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div style="margin:10px;text-align: center" class="g-signin2" data-onsuccess="onSignIn"></div>
+    <script>
+      function onSignIn(googleUser) {
+        var profile = googleUser.getBasicProfile();
+        console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+        console.log('Name: ' + profile.getName());
+        console.log('Image URL: ' + profile.getImageUrl());
+        console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+      }
+    </script>
+    <br>
+    <!-- Snapchat -->
+    <div id="my-login-button-target" />
+    <script>
+       window.snapKitInit = function () {
+        var loginButtonIconId = 'my-login-button-target';
+        // Mount Login Button
+        snap.loginkit.mountButton(loginButtonIconId, {
+          clientId: 'c8685f58-6517-4cdb-99e9-c4ebf527bc84',
+          redirectURI: 'https://thisisagreat.club/',
+          scopeList: [
+            'user.display_name',
+            'user.bitmoji.avatar',
+          ],
+          handleResponseCallback: function() {
+            snap.loginkit.fetchUserInfo()
+              .then(data => console.log('User info:', data));
+          },
+        });
+      };
+
+      // Load the SDK asynchronously
+      (function (d, s, id) {
+        var js, sjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "https://sdk.snapkit.com/js/v1/login.js";
+        sjs.parentNode.insertBefore(js, sjs);
+      }(document, 'script', 'loginkit-sdk'));
+    </script>
+  </body>
+</html>
