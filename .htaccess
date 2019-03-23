@@ -1,0 +1,25 @@
+RewriteEngine On
+
+#index.html
+RewriteRule ^$ index.html
+RewriteRule ^/$ index.html
+
+#explore.html
+RewriteRule ^explore$ explore.html
+RewriteRule ^explore/$ explore.html
+
+#chat.html
+RewriteRule ^chat$ chat.html
+RewriteRule ^chat/$ chat.html
+
+#settings.html
+RewriteRule ^settings$ settings.html
+RewriteRule ^settings/$ settings.html
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^(.*[^/])$ /$1/ [L,R=301]
+   #Force www:
+RewriteCond %{HTTP_HOST} ^losaltoslaw.com [NC]
+RewriteRule ^(.*)$ http://www.losaltoslaw.com/$1 [L,R=301,NC]
+
+ErrorDocument 404 /404.html

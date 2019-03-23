@@ -1,0 +1,24 @@
+.row {
+  float: none;
+  /*background-color: white;*/
+}
+
+#center {
+  background-color: white;
+  padding: 25px;
+  padding bottom: 0px;
+  margin: auto;
+  margin-top: 30px;
+}
+
+.loginButton {
+  margin: 10px;
+}
+
+#bigTitle {
+  padding-top: 30px;
+  padding-bottom: 20px;
+  font-size: 35px;
+  font: Zapfino;
+  font-family: "Zapfino";
+}
