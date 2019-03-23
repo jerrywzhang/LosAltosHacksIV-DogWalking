@@ -22,3 +22,17 @@
   font: Zapfino;
   font-family: "Zapfino";
 }
+
+.col-lg-4 {
+  padding: 20px;
+  /*margin: 20px;*/
+  background-color: white;
+}
+
+#explorePhoto {
+
+}
+
+#explore {
+  margin-top: 30px;
+}
