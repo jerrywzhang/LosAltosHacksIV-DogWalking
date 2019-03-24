@@ -1,14 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<html>
+<head>
+    <title>Application Name! To be decided later</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
-    <title>Sample Chat</title>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"
+            integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+            crossorigin="anonymous"></script> <!-- jquery -->
+    <script type="text/javascript" src="script.js"></script> <!-- javascript -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> <!-- boostrap -->
+    <!-- <link rel="stylesheet" type="text/css" href="style.css"> -->
 
-    <!-- CSS -->
     <link href="https://fonts.googleapis.com/css?family=Oswald:700|Material+Icons" rel="stylesheet">
     <link href="chat.css" rel="stylesheet">
-  </head>
+</head>
+<body style="background: lightgrey">
+    
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">Woofr</a>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="/explore">Explore</a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="#">Chat <span class="sr-only">(current)</span></a>
+            </li>
+            <!-- <li class="nav-item">
+              <a class="nav-link" href="/chat">Chat</a>
+            </li> -->
+            <li class="nav-item">
+              <a class="nav-link" href="/settings">Settings</a>
+            </li>
+        </ul>
+    </div>
+    </nav>
 
   <body>
     <div class="app">

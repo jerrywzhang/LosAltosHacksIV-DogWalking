@@ -27,14 +27,20 @@
   font-family: "Zapfino";
 }
 
-.col-lg-4 {
-  padding: 20px;
-  /*margin: 20px;*/
-  background-color: white;
+#navigateExplore {
+  margin-top: 15px;
 }
 
-#explorePhoto {
+.col-lg-1 {
+  padding: 0px;
+}
 
+
+.button {
+  /*background-color: white;*/
+  border: none;
+  margin: 0px;
+  padding: 10px;
 }
 
 #explore {
@@ -47,4 +53,11 @@
 
 .g-signin2 > div{
   margin: 0 auto;
+
+#exploreImage, #exploreInfo {
+  margin-top: 20px;
+  padding: 20px;
+  /*margin: 20px;*/
+  background-color: white;
+  align-items: center;
 }
