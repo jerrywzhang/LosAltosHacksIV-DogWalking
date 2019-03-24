@@ -2,6 +2,11 @@
 <html>
 <head>
     <title>Application Name! To be decided later</title>
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <meta name="google-signin-client_id" content="348200332968-94ong4m49gftcur1v76qgkk5ut4a86uh.apps.googleusercontent.com">
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
+    <!-- <script src="test.js"></script> -->
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css"> -->
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"
             integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
             crossorigin="anonymous"></script> <!-- jquery -->
@@ -33,17 +38,56 @@
 
 <div class="row">
     <div class="col-md-4 col-md-offset-4" id="center">
-        <center><p id="bigTitle">Dog Walking</p></center>
+        <center><h2 id="bigTitle">Dog Walking</h2></center>
         <p>Welcome to ____Dog Walking___, a platform for both dog walkers and those who want their dogs walked! Get started by logging in below with your Snapchat or Google account.</p>
 
-        <center class="loginButton">
+
+        <!-- <center class="loginButton">
             <button onclick="snapchatLogin()">Log in with Snapchat</button>
         </center>
         <center>
             <button onclick="googleLogin()">Log in with Google</button>
-        </center>
-    </div>
+        </center> -->
 
+    <div style="margin:10px;text-align: center" class="g-signin2" data-onsuccess="onSignIn"></div>
+    <script>
+      function onSignIn(googleUser) {
+        var profile = googleUser.getBasicProfile();
+        console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+        console.log('Name: ' + profile.getName());
+        console.log('Image URL: ' + profile.getImageUrl());
+        console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+      }
+    </script>
+    <!-- Snapchat -->
+    <div id="my-login-button-target" style="text-align:center" />
+    <script>
+       window.snapKitInit = function () {
+        var loginButtonIconId = 'my-login-button-target';
+        // Mount Login Button
+        snap.loginkit.mountButton(loginButtonIconId, {
+          clientId: 'c8685f58-6517-4cdb-99e9-c4ebf527bc84',
+          redirectURI: 'https://thisisagreat.club/',
+          scopeList: [
+            'user.display_name',
+            'user.bitmoji.avatar',
+          ],
+          handleResponseCallback: function() {
+            snap.loginkit.fetchUserInfo()
+              .then(data => console.log('User info:', data));
+          },
+        });
+      };
+
+      // Load the SDK asynchronously
+      (function (d, s, id) {
+        var js, sjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "https://sdk.snapkit.com/js/v1/login.js";
+        sjs.parentNode.insertBefore(js, sjs);
+      }(document, 'script', 'loginkit-sdk'));
+    </script>
 
       <!-- <div class="col-6 col-md">
         <h5>Features</h5>
